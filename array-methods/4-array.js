@@ -29,6 +29,16 @@ var data = [
 // write a function that will sum all of the dogs ages in dog years using for loop.
 // 1 human year = 7 dog year
 
+function age(data) {
+  var sum=0;
+  for(var i=0;i<data.length;i++) {
+    if(data[i].type=="dog") {
+      sum+=data[i].age*7;
+    }
+  }
+  return sum;
+}
+
 // your code goes here
 
 // Solution is 105
@@ -37,5 +47,7 @@ var data = [
 // 1. filter - for filtering the cat or dog
 // 2. map - to multiply human year to dog year
 // 3. reduce - to accumulate total age.
+object.age(data.filter(x => (x.type=="dog") )).map(x=>x*7).reduce((acc,x) =>acc+x);
+
 
 // Solution 105

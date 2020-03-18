@@ -15,7 +15,16 @@ var words = [
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
 
-
+let uniqueArray = function(str) {
+  str.forEach( (string,i) => {
+    if(str.indexOf(string)!==-1) {
+      str.splice(i,1);
+      console.log(string);
+    }
+  }
+  );
+  return str;
+}
 
 var words2 = [
   'machine',
@@ -29,7 +38,7 @@ var words2 = [
 ];
 
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
-
+let doesWordExist = (words,word) => words.forEach( str => (str==word)? true: false);
 
 
 
@@ -51,8 +60,15 @@ var words3 = [
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 
 
-
-
+function howManyTimes(words,str) {
+  let count = 0
+  words.forEach(word => {
+    if(word == str) {
+      count++;
+    }
+  });
+  return count;
+}
 
 // Using the reduce() method, how would you sum up the population of every country except China?
 let data = [
@@ -74,6 +90,7 @@ let data = [
   }
 ]
 
+let population = data.filter(data => data.country!=="China").reduce(((acc,value) => acc + value.pop),0);
 
 // Use reduce method and summorize the collection like
 // { banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1 }
@@ -90,6 +107,16 @@ const fruitBasket = [
   'orange',
   'fig'
 ];
+var obj = {};
+var collection = (fruitBasket.reduce((acc, value) => {
+  if(Object.keys(obj).indexOf(value) !=-1) {
+    obj[value]++;
+  } else {
+    obj[value] = 1;
+  }
+  return obj;
+}, obj));
+console.log(collection);
 
 
 
