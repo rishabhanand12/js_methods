@@ -27,29 +27,73 @@
       
 
       function everyone() {
-      var everyName =[]
-       got.houses.forEach(house => everyName.concat(house.name));
-       return everyName
+        return  res = got.houses.reduce((acc,value) => {
+          var arr = value.people;
+          arr.forEach(arr => {
+            acc.push(arr.name);
+          });
+          return acc;
+        }, []);
       }
 
       function nameWithS() {
-        // your code goes here
+        return  res = got.houses.reduce((acc,value) => {
+          var arr = value.people;
+          arr.forEach(arr => {
+            if(arr.name.includes('S') || arr.name.includes('s')) {
+              acc.push(arr.name);
+            }
+           
+          });
+          return acc;
+        }, []);
       }
 
       function nameWithA() {
-        // your code goes here
+        return res = got.houses.reduce((acc,value) => {
+          var arr = value.people;
+          arr.forEach(arr => {
+            if(arr.name.includes('A') || arr.name.includes('a')){
+              acc.push(arr.name);
+            }
+          });
+          return acc;
+        }, []);
       }
 
       function surnameWithS() {
-        // your code goes here
+        return  res = got.houses.reduce((acc,value) => {
+          var arr = value.people;
+          arr.forEach(arr => {
+            var surname = arr.name.split(' ')[1];
+            if(surname.startsWith('S') || surname.startsWith('s')){
+              acc.push(arr.name);
+            }
+          });
+          return acc;
+        }, []);
       }
 
       function surnameWithA() {
-        // your code goes here
+        return res = got.houses.reduce((acc,value) => {
+          var arr = value.people;
+          arr.forEach(elem => {
+            var surname = elem.name.split(' ')[1];
+            if(surname.startsWith('A') || surname.startsWith('a')) {
+              acc.push(elem.name);
+            }
+          });
+          return acc;
+        }, []);
       }
 
       function peopleNameOfAllHouses() {
-        // your code goes here
+        return res = got.houses.reduce((acc,value) => {
+          var arr = value.people;
+          var Obj = {};
+          acc[value.name] = arr.map(elem => {return elem.name;});
+          return acc;
+        }, {});
       }
 
       // Testing your result after writing your function
